@@ -1,0 +1,41 @@
+.flexbox{
+    width: 100vh;
+    position: relative;
+    height: 100vh;
+}
+
+.box1{
+    position: absolute;
+    right: 0;
+    /* margin-left: 990px; */
+    background-color: rgb(236, 240, 240) !important;
+
+}
+
+.tieude{
+    font-family: Arial, sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: #ff0000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup{
+    width: 250px;
+    height: 250px;
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    font-weight: bold;
+    color: #ff0000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+.tieudepopup{
+    color: aqua;
+    margin-top: 0%;
+}

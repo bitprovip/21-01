@@ -1,0 +1,86 @@
+.show-parking{
+    height: 330px;
+    background: #E8E8E8;
+   
+}
+.content{
+    margin: 0 100px;
+    display: flex;
+    flex-direction: column;
+}
+.content-header{
+    height: 60px;
+    margin-bottom: 30px;
+    padding-top: 30px;
+}
+
+.title{
+    font-size: 22px;
+    font-weight: 600;
+}
+.btn-title{
+    float: right;
+    padding: 10px 15px;
+    border: none;
+    outline: none;
+    display: block;
+    background: #ebebeb;
+    color: black;
+    cursor: pointer;
+
+    &:hover{
+        color: #fff;
+        background: #f7d800;
+    }
+}
+
+.content-body{
+}
+
+.img-custom{
+    /* height: 300px; */
+}
+
+.bg-image{
+    height: 150px;
+    width: 270px;
+    background: url(../../assets/baixe.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #eee;
+    cursor: pointer;
+}
+
+
+.slick-prev {
+    left: -10px !important;
+    z-index: 1000 !important;
+    height: 35px !important;
+    width: 30px !important;
+    border: 2px solid #d7d7d7 !important;
+    background: #b1f507 !important;
+  
+    &:hover {
+      background: #eceaea !important;
+    }
+  }
+  
+  .slick-prev:before,
+  .slick-next:before {
+    font-family: FontAwesome !important;
+    color: red !important;
+  }
+  
+  .slick-next {
+    right: -10px !important;
+    z-index: 1000 !important;
+    height: 35px !important;
+    width: 30px !important;
+    border: 2px solid #d7d7d7 !important;
+    background: #0bdc38 !important;
+  
+    &:hover {
+      background: #eceaea !important;
+    }
+  }

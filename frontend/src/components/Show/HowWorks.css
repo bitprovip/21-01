@@ -1,0 +1,115 @@
+.How-Works{
+    height: 400px;
+    width: 100%;
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: column;
+}
+.header-works{
+    font-style: italic;
+    height: 20vh;
+    /* border: 1px solid orange; */
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    text-transform: uppercase;
+}
+.body-works{
+    height: 100vh;
+    /* background-color: aqua; */
+    margin : 0 80px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.content-left {
+    /* background-color: #f1f1f1; */
+    width: 30vh;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .image{
+    height: 150px;
+    width: 150px;
+    background: url(../../assets/content-left.avif);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #eee;
+    border-radius: 50%;
+  }
+  .note{
+    height: 20%;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 10px;
+  }
+  .text{
+    margin-top: 10px;
+    text-align: center;
+    font-size: 13px;
+  }
+
+.content-center{
+    /* background-color: #f1f1f1; */
+    width: 30vh;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.image-center{
+    height: 150px;
+    width: 150px;
+    background: url(../../assets/content-center.avif);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #eee;
+    border-radius: 50%;
+  }
+.note-center{
+    height: 20%;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 10px;
+  }
+  .text-center{
+    margin-top: 10px;
+    text-align: center;
+    font-size: 13px;
+  }
+.content-right{
+    /* background-color: #f1f1f1; */
+    width: 30vh;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.image-right{
+    height: 150px;
+    width: 150px;
+    background: url(../../assets/content-right.avif);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #eee;
+    border-radius: 50%;
+  }
+  .note-right{
+    height: 20%;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 10px;
+  }
+  .text-right{
+    margin-top: 10px;
+    text-align: center;
+    font-size: 13px;
+  }

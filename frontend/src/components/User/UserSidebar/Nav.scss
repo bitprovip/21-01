@@ -1,0 +1,63 @@
+body {
+    margin: 0;
+    font-family: Arial,
+}
+
+.nav-header {
+
+        .bg-color {
+            background-color: #eeeeee;
+            height: 850px;
+        }
+        .sidebar{
+            color: rgb(233, 96, 42) !important;
+            font-weight:bolder;
+            text-decoration: none;
+        }
+
+        .nav-link{
+            color: black;
+            font-weight: 600;
+            &:hover{
+                color: rgb(211, 80, 15);
+            }
+        }
+
+        .logout{
+            cursor: pointer;
+            color: rgb(201, 50, 50);
+            font-weight: 700;
+        }
+        
+        // .navbar-nav{
+        //     .side-link {
+        //         color: white !important;
+
+        //         &:hover{
+        //             color: #ef6d45 !important;
+        //         }
+
+        //         .nav-link-child{
+        //             color: black !important;
+        //             &:hover {
+        //                     color: #aa4b0b !important;
+        //             }
+        //         }
+        //     }
+        //     .nav-link-c {
+        //         color: rgb(189, 6, 6) !important;
+            
+        //         &:hover {
+        //                     color: #0b1baa !important;
+        //         }
+        //         font-weight: bold;
+        //         text-align: center;
+                
+        //     }
+        // }
+        
+    }
+
+
+
+

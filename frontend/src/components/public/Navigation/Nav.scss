@@ -1,0 +1,54 @@
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.nav-header {
+        .bg-header {
+            background-color: #20232a;
+        }
+        .navbar-brand {
+            color: rgb(233, 166, 42) !important;
+
+            @keyframes App-logo-spin {
+                from {
+                    transform: rotate(0deg);
+                }
+                to {
+                    transform:  rotate(360deg);
+                }
+            }
+        }
+        .navbar-nav{
+            .nav-link {
+                color: white !important;
+
+                &:hover{
+                    color: #efde45 !important;
+                }
+
+                .nav-link-child{
+                    color: black !important;
+                    &:hover {
+                            color: #0b1baa !important;
+                    }
+                }
+            }
+            .nav-link-c {
+                color: rgb(189, 6, 6) !important;
+            
+                &:hover {
+                            color: #0b1baa !important;
+                }
+                font-weight: bold;
+                text-align: center;
+                
+            }
+        }
+        
+    }
+
+
+
+

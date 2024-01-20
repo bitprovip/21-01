@@ -1,0 +1,32 @@
+.bg {
+    background-color: rgb(247, 245, 245);
+    height: 100vh;
+}
+.noidung{
+    color: rgb(72, 73, 5);
+    
+    .about-content {
+        .thin {
+            background-color: rgb(48, 184, 177);
+            color: black;
+            font-weight:700;
+            text-align: center;
+            
+            .body {
+                    text-align: left;
+                    font-weight: 500;
+                    height: 600px;
+                }
+        }
+        .thanh{
+            background-color: antiquewhite;
+            color: black;
+            font-weight: 700;
+            text-align: center;
+            .body{
+                text-align: left;
+                font-weight: 500;
+            }
+        }
+    }
+}
