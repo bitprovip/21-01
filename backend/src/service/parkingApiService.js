@@ -1,6 +1,10 @@
 import db from '../models/index'
 import { Op } from 'sequelize';
 
+//status: 1: chua xac thuc,  2: da xac thuc 3:tu choi
+//tc: 1: bị admin khóa   2: đang mở 
+//onoff: 1.on 2.off
+
 const createNewParking = async(data)=>{
     try {
         await db.Parking.create(data);
@@ -82,7 +86,8 @@ const readDsHienThiService = async() =>{
     try {
             let dsbaixe =  await db.Parking.findAll({
                 where: {status: 2, tc: 2, 
-                    soluong: {[Op.gte]: 1}
+                        soluong: {[Op.gte]: 1},
+                        onoff:1
                 },
                 attributes: ["id", "name", "address", "price", "mota", "status","soluong","tc","lat","lng","luotxem"],
                 include: {model: db.User , attributes: ["id", "phone", "username", "email" ,"bsx"]}
@@ -314,7 +319,76 @@ const getProfile = async(id) =>{
     }
 }
 
+const updateMo = async(data) =>{
+    try {
+        let parking = await db.Parking.findOne({
+            where: { id: data.id}
+        })
+
+        if(parking){
+            await parking.update({
+                onoff: 1,
+            })
+            return{
+                EM: 'Đã mở bãi đỗ',
+                EC: 0,
+                DT: '',
+            }
+
+
+        }else{
+            return{
+                EM: 'ko tìm thấy bãi đỗ',
+                EC: 2,
+                DT: '',
+            }
+        }
+
+
+    } catch (e) {
+            return{
+                EM: 'lỗi ở parking service',
+                EC: 1,
+                DT: [],
+            }
+    }
+}
+const updateDong = async(data) =>{
+    try {
+        let parking = await db.Parking.findOne({
+            where: { id: data.id}
+        })
+
+        if(parking){
+            await parking.update({
+                onoff: 2,
+            })
+            return{
+                EM: 'Đã đóng bãi đỗ',
+                EC: 0,
+                DT: '',
+            }
+
+
+        }else{
+            return{
+                EM: 'ko tìm thấy bãi đỗ',
+                EC: 2,
+                DT: '',
+            }
+        }
+
+
+    } catch (e) {
+            return{
+                EM: 'lỗi ở parking service',
+                EC: 1,
+                DT: [],
+            }
+    }
+}
+
 module.exports = {
-    createNewParking, getAllParking, getParkingConfirm, updateParkingConfirm,updateTC,updateOn,updateOff, readDsHienThiService, updateParkingLuotXem, getProfile
+    createNewParking, getAllParking, getParkingConfirm, updateParkingConfirm,updateTC,updateOn,updateOff, readDsHienThiService, updateParkingLuotXem, getProfile, updateMo, updateDong
     // getAllUse,deleteUser,updateUser,createUser,
 }

@@ -79,9 +79,7 @@ const NavHeader=(props) =>{
 
                                             <NavDropDown.Item href="/user/booking">Phiếu đặt chỗ</NavDropDown.Item>
                                             <NavDropDown.Divider/>
-
-                                        
-                                        
+                                            
                                             <NavDropDown.Item href="/user/history">Lịch sử đặt chỗ</NavDropDown.Item>
                                             <NavDropDown.Divider/>
                                             
@@ -89,22 +87,6 @@ const NavHeader=(props) =>{
                                                     <span onClick={()=> handleLogout()}> LOG OUT</span>
                                             </NavDropDown.Item>
                                         </NavDropDown>
-
-
-                                        {/* <NavDropDown title='Settings' id='basic-nav-dropdown'>
-                                        <NavDropDown.Item href="/user/info">Quản lý tài khoản</NavDropDown.Item>
-                                        <NavDropDown.Divider/>
-
-                                        <NavDropDown.Item href="/parkings"> Số dư </NavDropDown.Item>
-                                        <NavDropDown.Divider/>
-
-                                        <NavDropDown.Item href="/user/history"> lịch sử tra cứu </NavDropDown.Item>
-                                        <NavDropDown.Divider/>
-
-                                        <NavDropDown.Item className='nav-link-c'>
-                                            <span onClick={()=> handleLogout()}> LOG OUT</span>
-                                        </NavDropDown.Item>
-                                    </NavDropDown> */}
                                     </>
                                     :
                                     <Link className='nav-link' to='/login'>

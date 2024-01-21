@@ -17,6 +17,12 @@ const updateConfirmParking = (parkingData) =>{
 const updateUnConfirmParking = (parkingData) =>{
     return axios.put("/api/v1/parking/updateUnConfirm",{...parkingData})
 }
+const updateMo = (parkingData) =>{
+    return axios.put("/api/v1/parking/updateMo",{...parkingData})
+}
+const updateDong = (parkingData) =>{
+    return axios.put("/api/v1/parking/updateDong",{...parkingData})
+}
 const updateOn = (parkingData) =>{
     return axios.put("/api/v1/parking/updateOn",{...parkingData})
 }
@@ -35,4 +41,4 @@ const getProfile = (id)=>{
     return axios.get(`/api/v1/parking/getProfile?id=${id}`)
 }
 
-export {registerNewParking, fetchAllParking, fetchParkingConfirm, updateConfirmParking, updateUnConfirmParking,updateOn,updateOff,readDsHienThi, updateLuotXem, getProfile};
+export {registerNewParking, fetchAllParking, fetchParkingConfirm, updateConfirmParking, updateUnConfirmParking,updateOn,updateOff,readDsHienThi, updateLuotXem, getProfile, updateDong ,updateMo};

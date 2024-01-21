@@ -114,13 +114,23 @@ const updateUser = async(data) =>{
         let user = await db.User.findOne({
             where: { id: data.id}
         })
-
-        if(user){
+        let parking = await db.Parking.findOne({
+            where: { userid: data.id}
+        })
+        if(user.roleid===1){
+            return{
+                EM: 'Admin không được đổi role',
+                EC: 2,
+                DT: '',
+            }
+        }
+        if(user && !parking){
             await user.update({
                 username: data.username,
                 address: data.address,
                 roleid: data.roleid
             })
+            // console.log(data);
             return{
                 EM: 'update success',
                 EC: 0,
@@ -130,7 +140,7 @@ const updateUser = async(data) =>{
 
         }else{
             return{
-                EM: 'ko tìm thấy user',
+                EM: 'User sở hữu bãi đỗ không được đổi role',
                 EC: 2,
                 DT: '',
             }
@@ -153,7 +163,7 @@ const deleteUser = async(id) =>{
         })
         if(park){
             return{
-                EM: 'ko thể xóa user này ',
+                EM: 'Không thể xóa: Khóa ngoại table.Parking',
                 EC: 2,
                 DT: []
             }

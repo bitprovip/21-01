@@ -138,21 +138,6 @@ const ModalThongTin = (props) =>{
 
                 <Modal.Footer>
                     <Button variant='secondary' onClick={()=> handleCloseModalUser()}> Đóng</Button>
-                    {props?.dataBooking?.stt === 0 ?
-                    <Button variant='primary' onClick={props.confirmBooking}>
-                        Nhận xe
-                    </Button>
-                    :
-                    <Button variant='primary' onClick={props.khachNhanXe}>
-                        Trả tiền mặt 
-                    </Button>
-                    }
-                    {props?.dataBooking?.stt === 0 ?
-                    <></>
-                    :
-                    <Button variant='warning' onClick={()=> thanhtoan()}> Momo</Button>
-                    }
-                    
                 </Modal.Footer>
             </Modal>
         </>

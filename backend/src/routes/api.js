@@ -51,6 +51,8 @@ const initApiRoutes=(app)=>{
     router.put("/parking/updateUnConfirm", parkingController.updateTC);
     router.put("/parking/updateOn", parkingController.updateOn);
     router.put("/parking/updateOff", parkingController.updateOff);
+    router.put("/parking/updateMo", parkingController.updateMo);
+    router.put("/parking/updateDong", parkingController.updateDong);
     router.get("/parking/getProfile", parkingController.getProfile);
     // router.delete("/parking/delete", parkingController.deleteFunc);
 

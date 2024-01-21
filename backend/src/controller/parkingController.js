@@ -190,6 +190,41 @@ const getProfile = async (req,res) =>{
         })
     }
 }
+
+
+const updateMo = async (req,res) =>{
+    try {
+        let data = await parkingApiService.updateMo(req.body);
+        return res.status(200).json({
+            EM: data.EM,
+            EC: data.EC,
+            DT: data.DT,
+        })
+    } catch (error) {
+        return res.status(500).json({
+                EM: 'err from server',
+                EC: '-1',
+                DT: '',
+        })
+    }
+}
+
+const updateDong = async (req,res) =>{
+    try {
+        let data = await parkingApiService.updateDong(req.body);
+        return res.status(200).json({
+            EM: data.EM,
+            EC: data.EC,
+            DT: data.DT,
+        })
+    } catch (error) {
+        return res.status(500).json({
+                EM: 'err from server',
+                EC: '-1',
+                DT: '',
+        })
+    }
+}
 module.exports = {
-     createFunc, readFunc, readConfirm, updateConfirmFunc,updateTC,updateOn,updateOff,readDsHienThi, updateLuotXem,getProfile
+     createFunc, readFunc, readConfirm, updateConfirmFunc,updateTC,updateOn,updateOff,readDsHienThi, updateLuotXem,getProfile, updateDong,updateMo
 }

@@ -46,8 +46,8 @@ async function executeApiRequest(dulieu) {
         };
         const response = await axios.post(endpoint, data);
         if(response.data.resultCode === 0 ){ 
-            let trave = await queryTransaction(response.data.requestId, response.data.orderId)
-            console.log(trave);
+            // let trave = await queryTransaction(response.data.requestId, response.data.orderId)
+            // console.log(trave);
             console.log(response);
 
         }
@@ -55,7 +55,7 @@ async function executeApiRequest(dulieu) {
         return{
             EM: 'Đợi admin xác thực thông tin ...',
             EC: 0,
-            DT: [], //ở đây chứ lộn đó sửa lại như cũ thì nó ko qua đc trang quét mã nên t sửa v nó mới qua moi dau no là rỗng như này []
+            DT: response.data
         }
         
     } catch (error) {

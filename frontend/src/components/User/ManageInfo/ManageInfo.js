@@ -15,7 +15,7 @@ function ManageInfoUser(props) {
     },[userid])
 
     const fetchProfile = async () => {
-        let id = user.account.userid;
+        let id = user.user.account.userid;
         let response = await getProfile(id);
         if(response && +response.EC === 0 ){
             setUserId(user.user.account.userid)

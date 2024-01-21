@@ -7,12 +7,14 @@ import {toast} from 'react-toastify';
 import ModalDelete from "./ModalDelete"
 import ModalUser from "./ModalUser"
 import NavHeader from '../Navigation/NavHeader'
+import DataTable from 'react-data-table-component';
 
 const Users = (props) => {
     const [listUsers,setListUsers] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
-    const [currentLimit] = useState(5);
+    const [currentLimit] = useState(100);
     const [totalPages, setTotalPages] = useState(0);
+    const [records, setRecords] = useState([]);
 
     const [isShowModalDelete, setIsShowModalDelete] = useState(false);
     const [dataModal,setDataModal] = useState({});
@@ -32,12 +34,10 @@ const Users = (props) => {
         if(response && +response.EC === 0 ){
             setTotalPages(response.DT.totalPages);
             setListUsers(response.DT.users);
+            setRecords(response.DT.users)
         }
     }
 
-    const handlePageClick = async(event) =>{
-        setCurrentPage(+event.selected + 1);
-    };
 
     const handleDeleteUser = async(user) =>{
         setDataModal(user);
@@ -74,6 +74,64 @@ const Users = (props) => {
         // console.log(dataModalUser);
     }
 
+    const columns = [
+        {
+            name: 'id ',
+            selector: row =>  row.id,
+            sortable: true
+        },
+        {
+            name: 'Username',
+            selector: row => row.username,
+            cell: (row) => <span className="text-primary fw-bold fs-7">{row.username}</span>,
+        },
+        {
+            name: 'Phone',
+            selector: row => row.phone
+        },
+        {
+            name: 'Email',
+            selector: row => row.email
+        },
+        {
+            name: 'Role',
+            selector: row => row.Role.name
+        },
+        {
+    name: 'Actions',
+    cell: (row) => (
+      <td className='position-relative'>
+        <span
+          title='Edit'
+          className='edit'
+          onClick={() => handleEditUser(row)}
+        >
+          <i className='fa fa-pencil'></i>
+        </span>
+        <span
+          title='Delete'
+          className='delete'
+          onClick={() => handleDeleteUser(row)}
+        >
+          <i className='fa fa-trash-o'></i>
+        </span>
+      </td>
+    ),
+    // Không hiển thị filter cho cột này (optional)
+    allowOverflow: true,
+    button: true,
+  },
+    ]
+
+    
+
+    function handleSearch(event){
+        const newData = listUsers.filter(row =>{
+            return row.username.toLowerCase().includes(event.target.value.toLowerCase())
+        })
+        setRecords(newData)
+    }
+
     return(
         <div className=''>
         <NavHeader />
@@ -88,9 +146,9 @@ const Users = (props) => {
                         <div className='title mt-4 text-center'>
                             <h2>QUẢN LÝ NGƯỜI DÙNG</h2>
                         </div>
+                        <hr/>
                         
-                        <div className='acctions mb-2 mt-4'>
-                            {/* <button className='btn btn-success mx-1'> Refesh</button> */}
+                        {/* <div className='acctions mb-2 mt-3 text-end'>
                             <button className='btn btn-success' 
                             onClick={()=> {
                                 setIsShowModalUser(true);
@@ -98,86 +156,36 @@ const Users = (props) => {
                             }}
                             > Add User</button>
 
-                        </div>
+                        </div> */}
                     </div> 
                     <div className ='user-body mt-4'>
-                        <table className ='table table-bordered table-hover border border-dark '>
-                            <thead>
-                                <tr className='bg-info'>
-                                    <th scope='col'>id </th>
-                                    <th scope='col'>email</th>
-                                    <th scope='col'>username</th>
-                                    <th scope='col'>Phone</th>
-                                    <th scope='col'>role</th>
-                                    <th >actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {listUsers && listUsers.length > 0 ? 
-                                <>
-                                    {listUsers.map((item, index) =>{
-                                        return(
-                                            <tr key={`row-${index}`}> 
-                                                <td className='bg-secondary text-center'> {item.id}</td>
-                                                <td>{item.email}</td>
-                                                <td>{item.username}</td>
-                                                <td>{item.phone}</td>
-                                                <td>{item.Role ? item.Role.name: ''}</td>
-                                                <td>
-                                                    <span
-                                                        title='Edit'
-                                                        className='edit'
-                                                        onClick={()=> handleEditUser(item)}
-                                                    >
-                                                        <i className='fa fa-pencil'></i>
-                                                    </span>
-                                                    <span
-                                                        title='Delete'
-                                                        className='delete'
-                                                        onClick={()=> handleDeleteUser(item)}
-                                                    >
-                                                        <i className='fa fa-trash-o'></i>
-                                                    </span>
-                                                </td>
-                                            </tr>
-                                        )
-                                    })}
-                                </>    
-                                :
-                                <>
-                                <tr>
-                                    <td>not found User</td>
-                                </tr>
-                                </>
-                            }
-                            </tbody>
-                        </table>
+                        <div className='d-flex col-12 mb-2'>
+                            <div className='d-flex align-items-center text-end rounded border col-3'>
+                                <i className="fa fa-search" aria-hidden="true"></i>
+                                <input type='text' className='form-control' onChange={handleSearch}  placeholder='Tên người dùng...'/>
+                            </div>
+                            <div className='col-8'></div>
+                             <div className='acctions'>
+                            <button className='btn btn-success' 
+                                onClick={()=> {
+                                setIsShowModalUser(true);
+                                setActionModalUser("CREATE");
+                            }}
+                            > Add User</button>
+
+                        </div>
+                        </div>
+                        
+                       
+                        <DataTable className='fw-bold'
+                            columns={columns}
+                            data={records}
+                            fixedHeader
+                            pagination >
+
+                        </DataTable>
                     </div>
                 </div>
-                {totalPages > 0 &&
-                <div className='user-footer'>
-                    <ReactPaginate 
-                        nextLabel="next >"
-                        onPageChange={handlePageClick}
-                        pageRangeDisplayed={3}
-                        marginPagesDisplayed={4}
-                        pageCount={totalPages}
-                        previousLabel="< prev"
-                        pageClassName='page-item'
-                        pageLinkClassName='page-link'
-                        previousClassName='page-item'
-                        previousLinkClassName='page-link'
-                        nextClassName='page-item'
-                        nextLinkClassName='page-link'
-                        breakLabel="..."
-                        breakClassName='page-item'
-                        breakLinkClassName='page-link'
-                        containerClassName='pagination'
-                        activeClassName='active'
-                        renderOnZeroPageCount={null}       
-                    />
-                </div>
-                }
             </div>
                 <ModalDelete 
                     show={isShowModalDelete}

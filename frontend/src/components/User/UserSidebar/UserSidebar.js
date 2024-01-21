@@ -44,8 +44,6 @@ function UserSidebar(props) {
                         <NavLink to="/user/booking" className='nav-link'>
                             <i className="fa fa-product-hunt" aria-hidden="true"></i> Đơn đặt chỗ
                         </NavLink>
-                        <NavLink to="/user/info" className='nav-link'>
-                            <i className="fa fa-pencil-square-o" aria-hidden="true"></i> Số dư</NavLink>
                         <NavLink to="/user/history" className='nav-link'>
                             <i className="fa fa-history" aria-hidden="true"></i> Lịch sử</NavLink>
                         <hr/>
