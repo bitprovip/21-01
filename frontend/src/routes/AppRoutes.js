@@ -14,6 +14,8 @@ import ConfirmDK from "../components/Admin/ConfirmDK/ConfirmDK";
 
 import ManageInfo from "../components/owner/ManageInfo/ManageInfo";
 import QLDonDatCho from "../components/owner/QLDonDatCho/QLDonDatCho";
+import DoanhThu from "../components/owner/ManageDoanhThu/DoanhThu";
+import ThongKe from "../components/owner/QLThongKe/ThongKe";
 
 import ManageInfoUser from "../components/User/ManageInfo/ManageInfo";
 import ManageBooking from "../components/User/ManageBooking/ManageBooking";
@@ -48,8 +50,10 @@ const AppRoutes = (props) =>{
 
             {/* ownner route */}
             <PrivateRoutes path="/owner/info" component= {ManageInfo}/>
-            <PrivateRoutes path="/owner/thongke" component= {RegParking}/>
+            {/* <PrivateRoutes path="/owner/thongke" component= {RegParking}/> */}
             <PrivateRoutes path="/owner/booking" component= {QLDonDatCho}/>
+            <PrivateRoutes path="/owner/doanhthu" component= {DoanhThu}/>
+            <PrivateRoutes path="/owner/thongke" component= {ThongKe}/>
 
             <PrivateRoutes path="/checkout" component= {Chekout} />
 

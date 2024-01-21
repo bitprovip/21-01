@@ -34,9 +34,11 @@ const ModalThongTin = (props) =>{
     const thanhtoan = async() =>{
             let id = props?.dataBooking?.id;
             let gia = thoigian *props?.dataBooking?.giagui;
-            let res = await thanhToanMomo({id,gia});
-            window.open(res?.data?.DT?.payUrl);
-            // console.log(res.data.DT);
+            let parkingid = props?.dataBooking?.parkingid;
+            // console.log(props.dataBooking.parkingid);
+            let res = await thanhToanMomo({id,gia,parkingid});
+            // window.open(res?.data?.DT?.payUrl);
+            window.location.href= res?.data?.DT?.payUrl;
             
     }
     return(

@@ -19,6 +19,19 @@ module.exports = (sequelize, DataTypes) => {
     requestId: DataTypes.STRING,
     responseTime: DataTypes.BIGINT,
     amount: DataTypes.BIGINT,
+
+
+    transId: DataTypes.STRING,
+    message: DataTypes.STRING,
+    resultCode: DataTypes.INTEGER,
+    lastUpdated: DataTypes.STRING,
+    
+
+
+    // transId: responseData.transId,
+    //    message: responseData.message,
+    //   resultCode:responseData.resultCode,
+    //   lastUpdated: responseData.lastUpdated,
   }, {
     sequelize,
     modelName: 'Transaction_logs',

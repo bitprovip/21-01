@@ -89,7 +89,7 @@ const Login= (props) => {
           <h1>Login</h1>
           <input type='text' 
             className={objValidInput.isValidValueLogin ? 'form-control' : 'is-invalid form-control'}
-            placeholder='Nhap email'
+            placeholder='Nhập email'
             value={valueLogin}
             onChange={(event)=>{setValueLogin(event.target.value)}}
             />
@@ -97,7 +97,7 @@ const Login= (props) => {
           <input 
             type='password' 
             className={ objValidInput.isValidPassword ? 'form-control' : 'is-invalid form-control'}
-            placeholder='Nhap password' 
+            placeholder='Nhập password' 
             value={password}
             onChange={(event)=>{setPassword(event.target.value)}}
             // onKeyPress={(event)=>handlePressEnter(event)}
@@ -107,7 +107,7 @@ const Login= (props) => {
             Quên mật khẩu?</span>
           <hr />
           <div className='text-center'>
-            <button className='btn btn-success' onClick={()=>handleCreateNewAccout()}> đăng kí</button>
+            <button className='btn btn-success' onClick={()=>handleCreateNewAccout()}> Đăng kí</button>
           </div>
         </div>
       </div>

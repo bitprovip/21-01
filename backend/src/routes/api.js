@@ -6,7 +6,9 @@ import { checkUserJWT, checkUserPermission} from '../middleware/JWTAction'
 import groupController from "../controller/groupController"
 import parkingController from "../controller/parkingController"
 import bookingController from "../controller/bookingController"
+import ownerController from "../controller/ownerController"
 import momoController from "../controller/momoController"
+import webhookController from '../controller/webhookController'
 
 
 const router=express.Router();
@@ -56,6 +58,8 @@ const initApiRoutes=(app)=>{
     router.get("/parking/getProfile", parkingController.getProfile);
     // router.delete("/parking/delete", parkingController.deleteFunc);
 
+     router.post('/webhook', webhookController.handleWebhookCreate);
+
     
     
     //booking
@@ -70,8 +74,11 @@ const initApiRoutes=(app)=>{
     router.delete("/booking/delete", bookingController.deleteFunc);
     // router.put("/booking/updateTongtien", bookingController.updateTongtien);
 
+    router.get("/owner/getDoanhThu", ownerController.getDoanhThu);
+
     //pay-api
     router.post('/momo-payment', momoController.handleRequestMoMo);
+    router.post('/momo-request', momoController.handleValid);
 
     return app.use("/api/v1/",router);
 }

@@ -7,6 +7,14 @@ const handleRequestMoMo = async (req,res) => {
     });
 }
 
+const handleValid = async (req,res) => {
+    // let data = await requestApiMomo.executeApiRequest(req.body);
+    console.log('<<>>', req);
+    return res.status(204).json({
+        data: []
+    });
+}
+
 module.exports = {
-    handleRequestMoMo:handleRequestMoMo,
+    handleRequestMoMo:handleRequestMoMo,handleValid
 }

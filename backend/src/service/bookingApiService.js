@@ -417,14 +417,15 @@ const updateConfirmFunc = async(data) =>{
 }
 const updateKhachNhanXe = async(data) =>{
     try {
+        // console.log('data',data);
         let booking = await db.Booking.findOne({
-            where: { id: data.id}
+            where: { id: parseInt(data.id,10)}
         })
         // const now = moment();
         // khoangtg = 
         // let tongtien =  
         let parking = await db.Parking.findOne({
-            where: { id: data.parkingid}
+            where: { id: parseInt(data.parkingid,10)}
         })
         if(booking && parking){
             await booking.update({
@@ -449,6 +450,8 @@ const updateKhachNhanXe = async(data) =>{
 
 
     } catch (e) {
+        console.log('data2',data);
+        console.log(e);
             return{
                 EM: 'lỗi ở booking service',
                 EC: 1,

@@ -35,23 +35,34 @@ const Register= (props)=> {
         setObjCheckInput(defaultValidInput);
 
         if(!email){
-            toast.error("email is required");
+            toast.error("email không được để trống");
             setObjCheckInput({...defaultValidInput, isValidEmail:false});
             return false;
         }
         if(!phone){
-            toast.error("phone is required");
+            toast.error("SĐT không được để trống");
+            setObjCheckInput({...defaultValidInput, isValidPhone:false});
+            return false;
+        }
+        const isValidPhoneNumber = (phoneNumber) => {
+            // Sử dụng biểu thức chính quy để kiểm tra
+            const phoneRegex = /^\d{10}$/;
+            return phoneRegex.test(phoneNumber);
+        }; 
+        let abc = isValidPhoneNumber(phone)
+        if(abc===false){
+            toast.error("Số điện thoại phải là 10 số");
             setObjCheckInput({...defaultValidInput, isValidPhone:false});
             return false;
         }
         if(!password){
-            toast.error("password is required");
+            toast.error("password không được để trống");
             setObjCheckInput({...defaultValidInput, isValidPassword:false});
             return false;
         }
         if(password !== confirmPassword){
             setObjCheckInput({...defaultValidInput, isValidConfirmPassword:false});
-            toast.error("pass not same");
+            toast.error("pass không trùng");
             return false;
         }
         let regx=/\S+@\S+\.\S+/;
@@ -113,7 +124,7 @@ const Register= (props)=> {
                         </div>
                         <div className='form-group col-10'>
                             <label>User Name: </label>
-                            <input type='text' className='form-control' placeholder='User Name'
+                            <input type='text' className='form-control' placeholder='Username'
                                 value={username} onChange={(event) =>setUsername(event.target.value)}
                             />
                         </div>
@@ -125,7 +136,7 @@ const Register= (props)=> {
                         </div>
                         <div className='form-group col-10'>
                             <label>Re-Password: </label>
-                            <input type='password' className={objCheckInput.isValidConfirmPassword ? 'form-control' : 'form-control is-invalid'} placeholder='Nhap lai pass'
+                            <input type='password' className={objCheckInput.isValidConfirmPassword ? 'form-control' : 'form-control is-invalid'} placeholder='Nhập lại mật khẩu'
                                 value={confirmPassword} onChange={(event) =>setConfirmPassword(event.target.value)}
                             />
                         </div>
@@ -134,7 +145,7 @@ const Register= (props)=> {
 
                         <div className='text-center'>
                             <button className='btn btn-success ' onClick={()=>handleLogin()}>
-                                da co tai khoan. Login
+                               Đã có tài khoản?
                             </button>
                         </div>
 

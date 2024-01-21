@@ -44,9 +44,9 @@ function OwnerSidebar(props) {
                         <NavLink to="/owner/booking" className='nav-link'>
                             <i className="fa fa-car" aria-hidden="true"></i> Đơn đặt chỗ
                         </NavLink>
-                        <NavLink to="/owner/info" className='nav-link'>
+                        <NavLink to="/owner/doanhthu" className='nav-link'>
                             <i className="fa fa-pencil-square-o" aria-hidden="true"></i> Doanh thu</NavLink>
-                        <NavLink to="/owner/info" className='nav-link'>
+                        <NavLink to="/owner/thongke" className='nav-link'>
                             <i className="fa fa-money" aria-hidden="true"></i> Thống kê</NavLink>
                         <hr/>
                         <div className='mt-5'>                        
